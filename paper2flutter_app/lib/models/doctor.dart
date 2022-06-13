@@ -23,8 +23,8 @@ class Doctor {
       p_apellido: json['p_apellido'],
       sexo: json['sexo'],
       foto: json['foto'],
-      especialidades: List<especialidad>.from(json["especialidades"].map(
-            (especialidadJson) => especialidad.fromJson(especialidadJson))),
+      especialidades: List<especialidad>.from(json["especialidades"]
+          .map((especialidadJson) => especialidad.fromJson(especialidadJson))),
     );
   }
 
