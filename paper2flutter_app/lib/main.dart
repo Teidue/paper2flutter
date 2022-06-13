@@ -1,12 +1,16 @@
+// ignore_for_file: unused_import
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:paper2flutter_app/models/doctor/doctor.dart';
 import './page/Doctor_page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
@@ -37,6 +41,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
   }
@@ -73,12 +78,12 @@ class _MyAppState extends State<MyApp> {
 
             switch (snapshot.connectionState) {
               case ConnectionState.waiting:
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               default:
                 if (snapshot.hasError) {
-                  return Center(child: Text('Ocurrió un error!'));
+                  return const Center(child: Text('Ocurrió un error!'));
                 } else {
                   return buildDoctors(filteredDocs!);
                 }
@@ -90,7 +95,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget buildDoctors(List<Doctor> doctores) => ListView.builder(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         itemCount: doctores.length,
         itemBuilder: (context, index) {
           final filteredDoctor = doctores[index];
@@ -98,7 +103,7 @@ class _MyAppState extends State<MyApp> {
           return ListTile(
             leading: CircleAvatar(
               child: ClipRRect(
-                child: Image.asset('../assets/images/hombre1.jpg'),
+                child: Image.asset('../assets/images/media/hombre1.jpg'),
                 borderRadius: BorderRadius.circular(50.0),
               ),
             ),

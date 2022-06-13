@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import '../models/doctor/doctor.dart';
 
@@ -27,7 +29,7 @@ class DoctorPage extends StatelessWidget {
             const SizedBox(height: 40),
             Text(
               doctor.p_apellido,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontSize: 28,

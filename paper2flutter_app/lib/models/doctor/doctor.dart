@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, avoid_types_as_parameter_names, camel_case_types
+
 class Doctor {
   final int id_doctor;
   final String p_nombre;
