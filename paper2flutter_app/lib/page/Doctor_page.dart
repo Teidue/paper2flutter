@@ -22,8 +22,8 @@ class DoctorPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CircleAvatar(
-              backgroundImage:  AssetImage('../assets/images/' + doctor.foto),
+            const CircleAvatar(
+              backgroundImage:  AssetImage('assets/images/media/hombre1.jpg'),
               radius: 80,
             ),
             const SizedBox(height: 40),

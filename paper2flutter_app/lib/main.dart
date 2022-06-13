@@ -103,7 +103,7 @@ class _MyAppState extends State<MyApp> {
           return ListTile(
             leading: CircleAvatar(
               child: ClipRRect(
-                child: Image.asset('../assets/images/media/hombre1.jpg'),
+                child: Image.asset('assets/images/' +  filteredDoctor.foto),
                 borderRadius: BorderRadius.circular(50.0),
               ),
             ),
