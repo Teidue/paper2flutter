@@ -55,18 +55,34 @@ class FilterNetworkListPageState extends State<FilterNetworkListPage> {
             buildSearch(),
             Expanded(
               child: ListView.builder(
-                itemCount: doctors.length,
+                itemCount: doctors.isNotEmpty ? doctors.length : 1,
                 itemBuilder: (context, index) {
-                  final doctor = doctors[index];
-                  var flatEspecialidades = '';
-                  for (var item in doctors[index].especialidades) {
-                    flatEspecialidades = flatEspecialidades + item.nombre! + ', ';
+                  switch (doctors.isNotEmpty) {
+                    case true:
+                      {
+                        final doctor = doctors[index];
+                        var flatEspecialidades = '';
+                        for (var item in doctors[index].especialidades) {
+                          flatEspecialidades =
+                              flatEspecialidades + item.nombre! + ', ';
+                        }
+                        flatEspecialidades = flatEspecialidades.substring(
+                            0, flatEspecialidades.length - 2);
+                        flatEspecialidades = flatEspecialidades + '.';
+                        return buildDoctor(doctor, flatEspecialidades);
+                      }
+                    default:
+                      return Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text('No se encontraron resultados para: "$query"',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 20),),
+                          ],
+                        ),
+                      );
                   }
-                  flatEspecialidades =
-                      flatEspecialidades.substring(0, flatEspecialidades.length - 2);
-                  flatEspecialidades = flatEspecialidades + '.';
-
-                  return buildDoctor(doctor, flatEspecialidades);
                 },
               ),
             ),
@@ -93,20 +109,14 @@ class FilterNetworkListPageState extends State<FilterNetworkListPage> {
 
   Widget buildDoctor(Doctor doctor, String especialidades) => ListTile(
         leading: CircleAvatar(
-              child: ClipRRect(
-                child: Image.asset('assets/images/' + doctor.foto),
-                borderRadius: BorderRadius.circular(50.0),
-              ),
-            ),        
+          child: ClipRRect(
+            child: Image.asset('assets/images/' + doctor.foto),
+            borderRadius: BorderRadius.circular(50.0),
+          ),
+        ),
         title: doctor.sexo == 'M'
-                ? Text('Dr. ' +
-                    doctor.p_nombre +
-                    ' ' +
-                    doctor.p_apellido)
-                : Text('Dra. ' +
-                    doctor.p_nombre +
-                    ' ' +
-                    doctor.p_apellido),
-            subtitle: Text(especialidades),
-  );
+            ? Text('Dr. ' + doctor.p_nombre + ' ' + doctor.p_apellido)
+            : Text('Dra. ' + doctor.p_nombre + ' ' + doctor.p_apellido),
+        subtitle: Text(especialidades),
+      );
 }
