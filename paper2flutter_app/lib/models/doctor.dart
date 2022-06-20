@@ -1,5 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, avoid_types_as_parameter_names, camel_case_types
 
+import 'especialidad.dart';
+
 class Doctor {
   final int id_doctor;
   final String p_nombre;
@@ -36,24 +38,5 @@ class Doctor {
         "foto": foto,
         "especialidades": List<dynamic>.from(
             especialidades.map((especialidad) => especialidad.toJson())),
-      };
-}
-
-class especialidad {
-  final int? id_especialidad;
-  final String? nombre;
-
-  const especialidad({required this.id_especialidad, required this.nombre});
-
-  factory especialidad.fromJson(Map<String, dynamic> json) {
-    return especialidad(
-      id_especialidad: json['id_especialidad'],
-      nombre: json['nombre'],
-    );
-  }
-
-  Map<String, dynamic> toJson() => {
-        "id_especialidad": id_especialidad,
-        "nombre": nombre,
       };
 }
