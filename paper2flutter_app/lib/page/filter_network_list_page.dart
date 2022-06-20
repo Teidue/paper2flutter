@@ -5,6 +5,8 @@ import '../api/doctors_api.dart';
 import '../widget/search_widget.dart';
 
 class FilterNetworkListPage extends StatefulWidget {
+  const FilterNetworkListPage({Key? key}) : super(key: key);
+
   @override
   FilterNetworkListPageState createState() => FilterNetworkListPageState();
 }
@@ -55,7 +57,7 @@ class FilterNetworkListPageState extends State<FilterNetworkListPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text('Filtro de Doctores'),
+          title: const Text('Filtro de Doctores'),
           centerTitle: true,
         ),
         body: Column(
