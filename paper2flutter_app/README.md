@@ -16,7 +16,7 @@ Elaborado por: Subgrupo 1 - Code Rebels
 
 |   Integrante               |    Commit|
 | :------------: | ------------ |
-|  Carlos Arriaga |[Revisar repositorio de Nestjs](https://github.com/carlosead1410/paper2api "Revisar repositorio de Nestjs")|
+|   Carlos Arriaga |[Revisar repositorio de Nestjs](https://github.com/carlosead1410/paper2api "Revisar repositorio de Nestjs")|
 |   Christian Sanchez |[Revisar repositorio de Nestjs](https://github.com/carlosead1410/paper2api "Revisar repositorio de Nestjs")|
 |   Tadeo Vazquez| [1. Subiendo repositorio de flutter](https://github.com/Teidue/paper2flutter/commit/24fc5b3331c025c3ac48d10b34656062d06f509c "Subiendo repositorio de flutter")</br>[2. creando vista de filtro de doctores](https://github.com/Teidue/paper2flutter/commit/3178cad8b65590ecb58717e5cb48dcf006d69314 "creando vista de filtro de doctores")|
 

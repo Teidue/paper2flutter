@@ -3,22 +3,31 @@ import 'package:http/http.dart' as http;
 import '../models/doctor.dart';
 
 class DoctorsApi {
-  
   // ignore: unused_element
-  static Future<List<Doctor>> getDoctores(String query) async {
+  static Future<List<Doctor>?> getDoctores(String query) async {
     final url = Uri.parse(
         'http://192.168.0.105:3000/api/doctor/filter/especiality?especialidad=$query');
-    final response = await http.get(url);
+    final http.Response response;
+    try {
+      response = await http.get(url);
+    } catch (e) {
+      // throw Exception('El servidor esta inactivo - ServerDown');
+      return null;
+    }
     final List jsonData;
-    List<Doctor> doctores = [];
+    List<Doctor>? doctores;
 
     if (response.statusCode == 200) {
       String body = utf8.decode(response.bodyBytes);
       jsonData = jsonDecode(body);
-      doctores = jsonData.map((json) => Doctor.fromJson(json)).toList();
-      return doctores;
+      if (jsonData.isNotEmpty) {
+        doctores = jsonData.map((json) => Doctor.fromJson(json)).toList();
+        return doctores;
+      } else {
+        return doctores = [];
+      }
     } else {
-      throw Exception("FALLO");
+      return doctores;
     }
   }
 }
