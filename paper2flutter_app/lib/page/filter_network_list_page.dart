@@ -12,7 +12,7 @@ class FilterNetworkListPage extends StatefulWidget {
 }
 
 class FilterNetworkListPageState extends State<FilterNetworkListPage> {
-  List<Doctor>? doctors;
+  List<Doctor> doctors = [];
   String query = '';
   Timer? debouncer;
   bool isNull = false;
@@ -65,14 +65,12 @@ class FilterNetworkListPageState extends State<FilterNetworkListPage> {
             buildSearch(),
             Expanded(
               child: ListView.builder(
-                itemCount: doctors!.isNotEmpty
-                    ? doctors!.length
-                    : 1,
+                itemCount: doctors.isNotEmpty ? doctors.length : 1,
                 itemBuilder: (context, index) {
-                  if (doctors!.isNotEmpty) {
-                    final doctor = doctors![index];
+                  if (doctors.isNotEmpty) {
+                    final doctor = doctors[index];
                     var flatEspecialidades = '';
-                    for (var item in doctors![index].especialidades) {
+                    for (var item in doctors[index].especialidades) {
                       flatEspecialidades =
                           flatEspecialidades + item.nombre! + ', ';
                     }
