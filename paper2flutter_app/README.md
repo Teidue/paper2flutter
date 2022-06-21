@@ -41,3 +41,5 @@ En caso de que se quiera descargar el repositorio y utilizarlo, usted debera dea
 Una vez ejecutado todos los comandos, solo basta con darle ejecutar al proyecto y podra visualizar la lista de doctores (siempre y cuando el servicio este levantado)
 ### Observacion
 En la elaboracion del servicio de nestjs como en la vista elaborada en Flutter, participaron **TODOS** los integrantes del subgrupo, aportando ideas y posibles soluciones.
+
+Es importante que cambie la direccion ipv4 a la de su computador para poder realizar la peticion al servidor
