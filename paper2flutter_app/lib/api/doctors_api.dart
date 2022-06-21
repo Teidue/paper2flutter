@@ -7,7 +7,7 @@ class DoctorsApi {
   static Future<List<Doctor>?> getDoctores(String query) async {
     final url = Uri.parse(
         // 'http://10.0.2.2:3000/api/doctor/filter/especiality?especialidad=$query');
-        'http://192.168.0.105:3000/api/doctor/filter/especiality?especialidad=$query');
+        'http://192.168.0.7:3000/api/doctor/filter/especiality?especialidad=$query');
     final http.Response response;
     try {
       response = await http.get(url);
